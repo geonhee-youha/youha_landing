@@ -246,13 +246,16 @@ const reset = css`
     font-weight: bold;
   }
   html {
-    background-color: #f5f5f5 !important;
-    /* background-color: #ffffff !important; */
+    // width: 100vw !important;
+    /* background-color: #f5f5f5; */
     -webkit-font-smoothing: antialiased;
     box-sizing: border-box;
     text-size-adjust: 100%;
+    height: 100%
   }
   body {
+    /* background-color: #f5f5f5 !important; */
+
     /* font-size: 17px;
   line-height: 1.5; */
     font-size: 1rem;
@@ -261,7 +264,7 @@ const reset = css`
     color: #263238;
     scroll-behavior: smooth;
     letter-spacing: -0.4px !important;
-    background-color: #fff;
+    background-color: #111111;
   }
   * {
     box-sizing: border-box;
@@ -275,7 +278,7 @@ const reset = css`
   body {
     -webkit-font-smoothing: antialiased;
     box-sizing: border-box;
-    text-size-adjust: 100%;
+    // text-size-adjust: 100%;
   }
   /* 사파리 누를때 줌 안되게 */
   * {
@@ -352,12 +355,12 @@ const reset = css`
   }
   html,
   body {
-    // width: 100%;
-    font-family: "Pretendard",NanumGothic,"나눔고딕","Nanum Gothic","맑은 고딕","Malgun Gothic",Dotum
+    width: 100%;
+    font-family: "LINESeedKR",NanumGothic,"나눔고딕","Nanum Gothic","맑은 고딕","Malgun Gothic",Dotum
   }
   #__next {
-    width: 100%;
     height: 100%;
+    width: 100%;
     --sat: var(--sait);
     --sar: var(--sair);
     --sab: var(--saib);
@@ -369,6 +372,28 @@ const reset = css`
   img {
     -webkit-user-drag: none;
   }
+  @keyframes infiniteAnimation1 {
+    0% {
+        transform: translateX(0%);
+    }
+    50% {
+        transform: translateX(-100%);
+    }
+    50.1% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+@keyframes infiniteAnimation2 {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-200%);
+    }
+}
 `;
 
 export default reset;

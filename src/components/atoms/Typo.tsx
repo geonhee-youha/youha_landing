@@ -30,12 +30,12 @@ export default function Typo({
               lineClamp: lines,
               WebkitLineClamp: lines,
               whiteSpace: "pre-line",
-              wordBreak: "break-all",
+              wordBreak: "keep-all",
               textAlign: textAlign,
               ...sx,
             }
           : {
-              wordBreak: "break-all",
+              wordBreak: "keep-all",
               textAlign: textAlign,
               ...sx,
             }

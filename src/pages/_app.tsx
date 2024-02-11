@@ -9,9 +9,10 @@ import { fad } from "@fortawesome/pro-duotone-svg-icons";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { RecoilRoot } from "recoil";
 import "../styles/index.css";
-// import "../styles/reset.ts";
+import "../styles/reset.ts";
 import "swiper/css";
-import "swiper/css/pagination";
+import "swiper/css/effect-cards";
+import "swiper/css/effect-coverflow";
 import { theme } from "../themes/theme";
 import { useRouter } from "next/router";
 import { CacheProvider, EmotionCache, Global } from "@emotion/react";
@@ -35,17 +36,8 @@ import {
   DoughnutController,
 } from "chart.js";
 import _ from "lodash";
-import GlobalNavigationBar from "../components/organisms/GlobalNavigationBar";
-import { Box, ButtonBase, Stack, Typography } from "@mui/material";
-import Footer from "../components/organisms/Footer";
-import BottomNavigationBar from "../components/organisms/BottomNavigationBar";
-import BookmarksDialog from "../components/organisms/BookmarksDialog";
-import NewBookmarkDialog from "../components/organisms/NewBookmarkDialog";
-import FirstLoginDialog from "../components/organisms/FirstLoginDialog";
-import Icon from "../components/atoms/Icon";
-import youhaBlue from "../constants/youhaBlue";
-import Link from "next/link";
-import { grey } from "@mui/material/colors";
+import GlobalHeader from "../components/organisms/GlobalHeader";
+import { Box } from "@mui/material";
 
 ChartJS.register(
   LineController,
@@ -84,10 +76,11 @@ function MyApp(props: MyAppProps) {
       <Head>
         <meta charSet="utf-8" />
         <title>YOUHA V6 DEMO</title>
-        <meta
+        {/* <meta
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
+        /> */}
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
         <meta
           name="keywords"
           content="jellysmack, 젤리스맥, youha, 유하, 펀딩, 크리에이터, 한도조회"
@@ -100,7 +93,7 @@ function MyApp(props: MyAppProps) {
         {/* <meta property="og:image" content="/images/favicon/share.png" /> */}
         <meta property="og:image:width" content="200" />
         <meta property="og:image:height" content="200" />
-        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:type" content="images/png" />
         <meta property="og:url" content="https://youha-v6-demo.vercel.app/" />
         <meta name="twitter:card" content="summary" data-react-helmet="true" />
         <meta name="twitter:creator" content="" data-react-helmet="true" />
@@ -119,7 +112,7 @@ function MyApp(props: MyAppProps) {
         <link
           rel="shortcut icon"
           href="/images/favicon/favicon.ico"
-          type="image/x-icon"
+          type="images/x-icon"
         />
         <link
           rel="apple-touch-icon"
@@ -168,31 +161,31 @@ function MyApp(props: MyAppProps) {
         />
         <link
           rel="icon"
-          type="image/png"
+          type="images/png"
           sizes="144x144"
           href="/favicon/android-icon-144x144.png"
         />
         <link
           rel="icon"
-          type="image/png"
+          type="images/png"
           sizes="192x192"
           href="/images/favicon/android-icon-192x192.png"
         />
         <link
           rel="icon"
-          type="image/png"
+          type="images/png"
           sizes="32x32"
           href="/images/favicon/favicon-32x32.png"
         />
         <link
           rel="icon"
-          type="image/png"
+          type="images/png"
           sizes="96x96"
           href="/images/favicon/favicon-96x96.png"
         />
         <link
           rel="icon"
-          type="image/png"
+          type="images/png"
           sizes="16x16"
           href="/images/favicon/favicon-16x16.png"
         />
@@ -226,7 +219,23 @@ function MyApp(props: MyAppProps) {
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <Global styles={reset} />
+          {/* <Box
+            sx={{
+              width: "100%",
+              height: "100%",
+            }}
+            className='GlobalContainer'
+          >
+            <Box
+              sx={{
+                minWidth: 1200,
+                width: "100%",
+              }}
+            > */}
+          <GlobalHeader />
           <Component {...pageProps} key={router.route} />
+          {/* </Box>
+          </Box> */}
         </ThemeProvider>
       </RecoilRoot>
     </CacheProvider>

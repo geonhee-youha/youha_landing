@@ -1,24 +1,16 @@
-import { Box, SxProps } from "@mui/material";
+import { Box } from "@mui/material";
+import { grey } from "@mui/material/colors";
 
-export default function Toolbar({
-  sx,
-  children,
-}: {
-  sx?: SxProps;
-  children?: React.ReactNode;
-}) {
+export default function Toolbar({ children }: { children?: React.ReactNode }) {
   return (
     <Box
       sx={{
-        width: "100%",
+        position: "relative",
         height: 64,
         display: "flex",
         alignItems: "center",
-        "@media(max-width: 480px)": {
-          height: 56,
-        },
-        ...sx
       }}
+      className="Toolbar"
     >
       {children}
     </Box>

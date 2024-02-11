@@ -5,11 +5,13 @@ import {
   purple,
   cyan,
   grey,
+  pink,
 } from "@mui/material/colors";
+import youtubeRed from "../constants/youtubeRed";
 import youhaBlue from "../constants/youhaBlue";
 export const theme = createTheme({
   palette: {
-    mode: "light",
+    mode: "dark",
     primary: youhaBlue,
     secondary: purple,
     grey: grey,
@@ -30,9 +32,8 @@ export const theme = createTheme({
     MuiTypography: {
       styleOverrides: {
         root: {
-          // fontFamily: `LINESeedKR, Pretendard, -apple-system, BlinkMacSystemFont, system- ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo","Noto Sans KR", "Malgun Gothic", sans- serif`,
-          // fontFamily: `Noto Sans KR, Pretendard, -apple-system, BlinkMacSystemFont, system- ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo","Noto Sans KR", "Malgun Gothic", sans- serif`,
-          fontFamily: `Pretendard, -apple-system, BlinkMacSystemFont, system- ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo","Noto Sans KR", "Malgun Gothic", sans- serif`,
+          color: '#ffffff',
+          fontFamily: `LINESeedKR, Pretendard, -apple-system, BlinkMacSystemFont, system- ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo","Noto Sans KR", "Malgun Gothic", sans- serif`,
         }
       }
     },
@@ -48,7 +49,7 @@ export const theme = createTheme({
             cursor: 'pointer !important',
           },
           transition: `all 0.35s ease`,
-          fontFamily: `Pretendard, -apple-system, BlinkMacSystemFont, system- ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo","Noto Sans KR", "Malgun Gothic", sans- serif`,
+          fontFamily: `LINESeedKR, Pretendard, -apple-system, BlinkMacSystemFont, system- ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo","Noto Sans KR", "Malgun Gothic", sans- serif`,
         },
       },
     },
@@ -100,6 +101,7 @@ export const theme = createTheme({
           fontSize: 14,
           lineHeight: '20px',
           '& input': {
+            fontFamily: 'LINESeedKR',
             fontSize: 14,
             lineHeight: '20px !important',
             padding: 0,
@@ -110,3 +112,5 @@ export const theme = createTheme({
     }
   },
 });
+
+export const mainColor = youhaBlue

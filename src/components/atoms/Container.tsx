@@ -5,27 +5,29 @@ import { theme } from "../../themes/theme";
 export default function Container({
   children,
   sx,
+  className,
+  onClick,
 }: {
   children?: React.ReactNode;
   sx?: SxProps;
+  className?: string | undefined;
+  onClick?: React.MouseEventHandler<HTMLDivElement> | undefined;
 }) {
   return (
     <Box
       sx={{
         m: theme.spacing(0, "auto"),
-        p: theme.spacing(0, 4),
+        p: theme.spacing(0, 10),
         width: "100%",
-        minWidth: 1280,
-        maxWidth: 1280,
+        maxWidth: 1440,
+        transition: `all 0.35s ease`,
         "@media(max-width: 480px)": {
-          m: 0,
-          minWidth: "initial",
-          maxWidth: "initial",
-          p: theme.spacing(0, 2),
-          overflowX: "hidden",
+          p: theme.spacing(0, 3),
         },
         ...sx,
       }}
+      className={className}
+      onClick={onClick}
     >
       {children}
     </Box>

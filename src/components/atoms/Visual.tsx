@@ -41,7 +41,7 @@ export default function Visual({
     noLoading,
     mobile,
     noText,
-    noScale = true,
+    noScale,
     className,
     noAfter,
 }: Props) {
@@ -189,7 +189,7 @@ export default function Visual({
                             fontSize: labelSize ?? 10,
                             lineHeight: 1,
                             fontWeight: "700",
-                            color: grey[300],
+                            color: grey[400],
                             textAlign: "center",
                             display: noText ? "none" : "initial",
                         }}

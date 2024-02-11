@@ -5,9 +5,8 @@ import {
   IconPrefix,
 } from "@fortawesome/fontawesome-svg-core";
 import { Badge, SxProps } from "@mui/material";
-import { red } from "@mui/material/colors";
+import { grey, red } from "@mui/material/colors";
 import { MouseEventHandler } from "react";
-import youhaGrey from "../../constants/youhaGrey";
 
 type IconProps = {
   name: IconName;
@@ -28,7 +27,7 @@ export default function Icon({
   size = 24,
   padding = 2,
   className,
-  color = youhaGrey[900],
+  color = grey[900],
   onClick,
   sx,
 }: IconProps) {
@@ -54,18 +53,15 @@ export default function Icon({
         transition: `all 0.35s ease`,
         ...sx,
         "& .MuiBadge-badge": {
-          width: 12,
-          height: 12,
+          width: 6,
+          height: 6,
           minWidth: 4,
           backgroundColor: badgeColor,
-          border: `1px solid #ffffff`,
           fontSize: 12,
           lineHeight: "16px",
           fontWeight: "700",
-          borderRadius: "50%",
         },
       }}
-      className={className}
     >
       <FontAwesomeIcon
         icon={icon}
