@@ -417,6 +417,7 @@ function Content({ ready }: { ready: boolean }) {
               >
                 <Box
                   sx={{
+                    
                     transform: "translateY(88px)",
                     transition: `all 1s ease`,
                     transitionDelay: `0s`,
