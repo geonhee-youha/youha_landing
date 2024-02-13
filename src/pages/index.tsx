@@ -363,6 +363,7 @@ function Content({ ready }: { ready: boolean }) {
                   lineHeight: 1.2,
                   fontWeight: "900",
                   textAlign: 'center',
+                  wordBreak: 'keep-all',
                   '& span': {
                     color: mainColor[500]
                     // opacity: 0.6
@@ -389,18 +390,18 @@ function Content({ ready }: { ready: boolean }) {
                 transform: `scale(1)`,
               },
             }}
-            className={className}
+              className={className}
             >
               <Box sx={{
                 '@media(max-width: 480px)': {
                   mt: 3,
                   mb: 6,
-                  display:'flex',
-                  flexDirection:'column-reverse',
+                  display: 'flex',
+                  flexDirection: 'column-reverse',
                   width: '100%'
                 }
               }}
-              className={className}
+                className={className}
               >
                 <Typography sx={{
                   fontSize: 14,
@@ -408,7 +409,7 @@ function Content({ ready }: { ready: boolean }) {
                   mb: 1,
                   wordBreak: 'keep-all',
                   '@media(max-width: 480px)': {
-                    textAlign:'center',
+                    textAlign: 'center',
                     mb: 0,
                     mt: 1,
                     '& br': {
@@ -1253,154 +1254,154 @@ function Footer() {
   const anchorRef = useRef<HTMLButtonElement>(null);
   const prevOpen = useRef(open);
   useEffect(() => {
-      if (prevOpen.current === true && open === false) {
-          anchorRef.current!.focus();
-      }
-      prevOpen.current = open;
+    if (prevOpen.current === true && open === false) {
+      anchorRef.current!.focus();
+    }
+    prevOpen.current = open;
   }, [open]);
   const handleClose = (event: Event | SyntheticEvent) => {
-      if (anchorRef.current && anchorRef.current.contains(event.target as HTMLElement)) {
-          return;
-      }
-      setOpen(false);
+    if (anchorRef.current && anchorRef.current.contains(event.target as HTMLElement)) {
+      return;
+    }
+    setOpen(false);
   };
   const handleListKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Tab") {
-          event.preventDefault();
-          setOpen(false);
-      } else if (event.key === "Escape") {
-          setOpen(false);
-      }
+    if (event.key === "Tab") {
+      event.preventDefault();
+      setOpen(false);
+    } else if (event.key === "Escape") {
+      setOpen(false);
+    }
   };
   const handleClickNavBtn = (item: MainFooterNavBtnProps) => {
-      if (item.route === "") return setOpen((prev) => !prev);
-      window.open(item.route, "_blank");
+    if (item.route === "") return setOpen((prev) => !prev);
+    window.open(item.route, "_blank");
   };
   const handleClickMenuItem = (event: Event | SyntheticEvent, item: MainFooterLanguageMenuItemProps) => {
-      alert(`${item.label}로 언어 설정`);
-      handleClose(event);
+    alert(`${item.label}로 언어 설정`);
+    handleClose(event);
   };
   return (
-      <Box
-          sx={{
-              // backgroundColor: grey[100],
-              pb: 6,
-              "@media(max-width: 480px)": {
-                  pb: 4,
-              },
-          }}
+    <Box
+      sx={{
+        // backgroundColor: grey[100],
+        pb: 6,
+        "@media(max-width: 480px)": {
+          pb: 4,
+        },
+      }}
+    >
+      <Container
+        sx={{
+          maxWidth: 1280,
+          p: `48px 0px !important`,
+          "@media(max-width: 480px)": {
+            p: `24px 24px !important`,
+          },
+        }}
       >
-          <Container
-              sx={{
-                  maxWidth: 1280,
-                  p: `48px 0px !important`,
-                  "@media(max-width: 480px)": {
-                      p: `24px 24px !important`,
-                  },
-              }}
-          >
-              <Stack
-                  direction="row"
-                  spacing={3}
-                  sx={{
-                      mb: 6,
-                      "@media(max-width: 480px)": {
-                          mb: 4,
-                          flexDirection: "column !important",
-                          "& > div": {
-                              ml: "0 !important",
-                              "&:nth-child(1)": {
-                                  mb: 1,
-                              },
-                          },
-                      },
-                  }}
-              >
-                  <Stack direction="row" spacing={3}>
-                      {mainFooterNavBtnList.map((item, index) => {
-                          return (
-                              index <= 2 && (
-                                  <ButtonBase
-                                      key={`${item.label}_index`}
-                                      onClick={() => handleClickNavBtn(item)}
-                                      sx={{
-                                          fontSize: 14,
-                                          lineHeight: "20px",
-                                          fontWeight: "600",
-                                          color: grey[500],
-                                      }}
-                                  >
-                                      {item.label}
-                                  </ButtonBase>
-                              )
-                          );
-                      })}
-                  </Stack>
-                  <Stack direction="row" spacing={3}>
-                      {mainFooterNavBtnList.map((item, index) => {
-                          const last = index === mainFooterNavBtnList.length - 1;
-                          return (
-                              index > 2 && (
-                                  <Box key={index}>
-                                      <ButtonBase
-                                          // key={`${item.label}_index`}
-                                          ref={anchorRef}
-                                          id={`mainFooter-${index}-button`}
-                                          aria-controls={open ? `mainFooter-${index}-menu` : undefined}
-                                          aria-expanded={open ? "true" : undefined}
-                                          aria-haspopup="true"
-                                          sx={{
-                                              fontSize: 14,
-                                              lineHeight: "20px",
-                                              fontWeight: "600",
-                                              color: grey[500],
-                                          }}
-                                          onClick={() => handleClickNavBtn(item)}
-                                      >
-                                          {item.label}
-                                          {item.label === "언어 선택" && (
-                                              // <Icon
-                                              //     name="angle-down"
-                                              //     size={14}
-                                              //     sx={{
-                                              //         transition: "all 0.35s ease",
-                                              //         transform: open ? "rotate(180deg)" : "none",
-                                              //         width: 20,
-                                              //         height: 20,
-                                              //         color: grey[500],
-                                              //         mr: `${-(20 - 14) / 2}px`,
-                                              //     }}
-                                              // />
-                                              <></>
-                                          )}
-                                      </ButtonBase>
-                                      {item.label === "언어 선택" && (
-                                          <></>
-                                      )}
-                                  </Box>
-                              )
-                          );
-                      })}
-                  </Stack>
-              </Stack>
-              <Typography
-                  sx={{
+        <Stack
+          direction="row"
+          spacing={3}
+          sx={{
+            mb: 6,
+            "@media(max-width: 480px)": {
+              mb: 4,
+              flexDirection: "column !important",
+              "& > div": {
+                ml: "0 !important",
+                "&:nth-child(1)": {
+                  mb: 1,
+                },
+              },
+            },
+          }}
+        >
+          <Stack direction="row" spacing={3}>
+            {mainFooterNavBtnList.map((item, index) => {
+              return (
+                index <= 2 && (
+                  <ButtonBase
+                    key={`${item.label}_index`}
+                    onClick={() => handleClickNavBtn(item)}
+                    sx={{
                       fontSize: 14,
                       lineHeight: "20px",
+                      fontWeight: "600",
                       color: grey[500],
-                  }}
-              >
-                  주식회사 티켓플레이스
-                  <br />
-                  사업자등록번호 145-87-00100
-                  <br />
-                  서울특별시 강남구 봉은사로 2길 21, 반석빌딩 5층
-                  <br />
-                  대표이사 한준희
-                  <br />
-                  <br />ⓒ Ticketplace Inc.
-              </Typography>
-          </Container>
-      </Box>
+                    }}
+                  >
+                    {item.label}
+                  </ButtonBase>
+                )
+              );
+            })}
+          </Stack>
+          <Stack direction="row" spacing={3}>
+            {mainFooterNavBtnList.map((item, index) => {
+              const last = index === mainFooterNavBtnList.length - 1;
+              return (
+                index > 2 && (
+                  <Box key={index}>
+                    <ButtonBase
+                      // key={`${item.label}_index`}
+                      ref={anchorRef}
+                      id={`mainFooter-${index}-button`}
+                      aria-controls={open ? `mainFooter-${index}-menu` : undefined}
+                      aria-expanded={open ? "true" : undefined}
+                      aria-haspopup="true"
+                      sx={{
+                        fontSize: 14,
+                        lineHeight: "20px",
+                        fontWeight: "600",
+                        color: grey[500],
+                      }}
+                      onClick={() => handleClickNavBtn(item)}
+                    >
+                      {item.label}
+                      {item.label === "언어 선택" && (
+                        // <Icon
+                        //     name="angle-down"
+                        //     size={14}
+                        //     sx={{
+                        //         transition: "all 0.35s ease",
+                        //         transform: open ? "rotate(180deg)" : "none",
+                        //         width: 20,
+                        //         height: 20,
+                        //         color: grey[500],
+                        //         mr: `${-(20 - 14) / 2}px`,
+                        //     }}
+                        // />
+                        <></>
+                      )}
+                    </ButtonBase>
+                    {item.label === "언어 선택" && (
+                      <></>
+                    )}
+                  </Box>
+                )
+              );
+            })}
+          </Stack>
+        </Stack>
+        <Typography
+          sx={{
+            fontSize: 14,
+            lineHeight: "20px",
+            color: grey[500],
+          }}
+        >
+          주식회사 티켓플레이스
+          <br />
+          사업자등록번호 145-87-00100
+          <br />
+          서울특별시 강남구 봉은사로 2길 21, 반석빌딩 5층
+          <br />
+          대표이사 한준희
+          <br />
+          <br />ⓒ Ticketplace Inc.
+        </Typography>
+      </Container>
+    </Box>
   );
 }

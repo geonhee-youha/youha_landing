@@ -76,6 +76,7 @@ export default function MainNav() {
             lineHeight: "28px",
             fontWeight: "700",
             color: `#ffffff`,
+            wordBreak: 'keep-all',
           }}
         >
           {title}
