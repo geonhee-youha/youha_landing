@@ -9,7 +9,7 @@ import Button from "../components/atoms/Button";
 import { BeltBanner } from "../components/organisms/BeltBanner";
 import MainNav from "../components/organisms/MainNav";
 import _ from "lodash";
-import Shorts from "../components/templates/index/shorts";
+// import Shorts from "../components/templates/index/shorts";
 import Section01 from "../components/templates/index/Section01";
 // import Icon from "../components/atoms/Icon";
 // import { IconName } from "@fortawesome/fontawesome-svg-core";
