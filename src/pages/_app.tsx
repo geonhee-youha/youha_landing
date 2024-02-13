@@ -60,6 +60,7 @@ const clientSideEmotionCache = createEmotionCache();
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
 }
+
 // const { library, config } = require("@fortawesome/fontawesome-svg-core");
 // library.add(fal, far, fas, fad);
 declare global {
