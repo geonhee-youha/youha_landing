@@ -2,11 +2,11 @@ import Head from "next/head";
 import { AppProps } from "next/app";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
-import { fal } from "@fortawesome/pro-light-svg-icons";
-import { far } from "@fortawesome/pro-regular-svg-icons";
-import { fas } from "@fortawesome/pro-solid-svg-icons";
-import { fad } from "@fortawesome/pro-duotone-svg-icons";
-import "@fortawesome/fontawesome-svg-core/styles.css";
+// import { fal } from "@fortawesome/pro-light-svg-icons";
+// import { far } from "@fortawesome/pro-regular-svg-icons";
+// import { fas } from "@fortawesome/pro-solid-svg-icons";
+// import { fad } from "@fortawesome/pro-duotone-svg-icons";
+// import "@fortawesome/fontawesome-svg-core/styles.css";
 import { RecoilRoot } from "recoil";
 import "../styles/index.css";
 import "../styles/reset.ts";
@@ -60,8 +60,8 @@ const clientSideEmotionCache = createEmotionCache();
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
 }
-const { library, config } = require("@fortawesome/fontawesome-svg-core");
-library.add(fal, far, fas, fad);
+// const { library, config } = require("@fortawesome/fontawesome-svg-core");
+// library.add(fal, far, fas, fad);
 declare global {
   interface Window {
     webkit?: any;

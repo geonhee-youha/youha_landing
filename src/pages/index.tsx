@@ -11,15 +11,15 @@ import MainNav from "../components/organisms/MainNav";
 import _ from "lodash";
 import Shorts from "../components/templates/index/shorts";
 import Section01 from "../components/templates/index/Section01";
-import Icon from "../components/atoms/Icon";
-import { IconName } from "@fortawesome/fontawesome-svg-core";
+// import Icon from "../components/atoms/Icon";
+// import { IconName } from "@fortawesome/fontawesome-svg-core";
 import youhaBlue from "../constants/youhaBlue";
 import Footer from "../components/templates/index/Footer";
 import { Stack } from "@mui/system";
 
 const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false });
 
-const infos: { icon: IconName, title: any, description: any }[] = [
+const infos: { icon: any, title: any, description: any }[] = [
   {
     icon: 'user-tie-hair',
     title: '광고주 회원',
@@ -37,7 +37,7 @@ const infos: { icon: IconName, title: any, description: any }[] = [
   }
 ]
 
-const services: { icon: IconName, title: any, description: any }[] = [
+const services: { icon: any, title: any, description: any }[] = [
   {
     icon: 'user-tie-hair',
     title: '유하 인증 에이전시',
@@ -379,8 +379,18 @@ function Content({ ready }: { ready: boolean }) {
               '@media(max-width: 480px)': {
                 flexDirection: 'column-reverse',
                 width: '100%',
-              }
-            }}>
+              },
+              transition: `all 1s ease`,
+              opacity: 0,
+              transform: `scale(0.8)`,
+              "&.shown": {
+                transitionDelay: `0.5s`,
+                opacity: 1,
+                transform: `scale(1)`,
+              },
+            }}
+            className={className}
+            >
               <Box sx={{
                 '@media(max-width: 480px)': {
                   mt: 3,
@@ -389,7 +399,9 @@ function Content({ ready }: { ready: boolean }) {
                   flexDirection:'column-reverse',
                   width: '100%'
                 }
-              }}>
+              }}
+              className={className}
+              >
                 <Typography sx={{
                   fontSize: 14,
                   color: grey[500],
@@ -409,14 +421,6 @@ function Content({ ready }: { ready: boolean }) {
                 <Button
                   sx={{
                     width: 'auto',
-                    transition: `all 1s ease`,
-                    opacity: 0,
-                    transform: `scale(0.8)`,
-                    "&.shown": {
-                      transitionDelay: `2s`,
-                      opacity: 1,
-                      transform: `scale(1)`,
-                    },
                     '@media(max-width: 480px)': {
                       width: '100%',
                     }

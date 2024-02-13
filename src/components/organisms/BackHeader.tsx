@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import { maxWidth } from "../../constants";
 import { theme } from "../../themes/theme";
-import Icon from "../atoms/Icon";
+// import Icon from "../atoms/Icon";
 
 export default function BackHeader({
   children,
@@ -36,7 +36,7 @@ export default function BackHeader({
       >
         {children ?? (
           <IconButton onClick={onClickBack}>
-            <Icon name="chevron-left" color="#ffffff" />
+            {/* <Icon name="chevron-left" color="#ffffff" /> */}
           </IconButton>
         )}
       </Box>

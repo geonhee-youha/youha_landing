@@ -6,7 +6,7 @@ import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import { theme } from "../../themes/theme";
 import Border from "../atoms/Border";
 import Container from "../atoms/Container";
-import Icon from "../atoms/Icon";
+// import Icon from "../atoms/Icon";
 import Toolbar from "../atoms/Toolbar";
 import { BeltBanner } from "./BeltBanner";
 
@@ -112,7 +112,7 @@ export default function GlobalHeader() {
             {headers.map((item, index) => (
               <HeaderBtn key={index} item={item} />
             ))}
-            <Box
+            {/* <Box
               sx={{
                 position: "relative",
                 height: "100%",
@@ -139,7 +139,7 @@ export default function GlobalHeader() {
                 <Icon prefix="fal" name="globe" size={20} color="#ffffff" />
               </IconButton>
               <Languages open={languagesOpen} setOpen={setLanguagesOpen} />
-            </Box>
+            </Box> */}
           </Box>
         </Toolbar>
       </Container>
