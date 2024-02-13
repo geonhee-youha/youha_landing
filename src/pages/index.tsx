@@ -14,7 +14,7 @@ import _ from "lodash";
 // import Icon from "../components/atoms/Icon";
 // import { IconName } from "@fortawesome/fontawesome-svg-core";
 // import youhaBlue from "../constants/youhaBlue";
-import Footer from "../components/templates/index/Footer.tsx";
+import Footer from "../components/templates/Footer";
 import { Stack } from "@mui/system";
 
 const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false });
