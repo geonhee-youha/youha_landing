@@ -85,7 +85,7 @@ export default function GlobalHeader() {
       }}
       className="GlobalHeader"
     >
-       <BeltBanner />
+       {/* <BeltBanner /> */}
       <Container>
         <Toolbar>
           <Box

@@ -1,7 +1,7 @@
 import { Box, Rating, SxProps, Typography } from "@mui/material";
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import Container from "../components/atoms/Container";
-import { theme } from "../themes/theme";
+import { mainColor, theme } from "../themes/theme";
 import dynamic from "next/dynamic";
 import { useInView } from "react-intersection-observer";
 import { grey } from "@mui/material/colors";
@@ -15,12 +15,13 @@ import Icon from "../components/atoms/Icon";
 import { IconName } from "@fortawesome/fontawesome-svg-core";
 import youhaBlue from "../constants/youhaBlue";
 import Footer from "../components/templates/index/Footer";
+import { Stack } from "@mui/system";
 
 const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false });
 
 const infos: { icon: IconName, title: any, description: any }[] = [
   {
-    icon: 'user-tie',
+    icon: 'user-tie-hair',
     title: '광고주 회원',
     description: '2만명+',
   },
@@ -38,7 +39,7 @@ const infos: { icon: IconName, title: any, description: any }[] = [
 
 const services: { icon: IconName, title: any, description: any }[] = [
   {
-    icon: 'user-tie',
+    icon: 'user-tie-hair',
     title: '유하 인증 에이전시',
     description: '유하가 심사하고 인증한 크리에이터 에이전시, 소속사가 견적서를 보내드립니다.',
   },
@@ -256,7 +257,7 @@ function Background({
         className="Background"
       >
         <ReactPlayer
-          url={`videos/universe-02.mp4`}
+          url={`videos/universe-03.mp4`}
           autoPlay
           playing
           muted
@@ -295,22 +296,10 @@ function Content({ ready }: { ready: boolean }) {
   };
   const onClickButton = (e: any) => {
     e.stopPropagation();
-    const element: HTMLDivElement | null = document.querySelector(
-      `.Section${3}`
-    );
-    const BeltBanner: HTMLDivElement | null =
-      document.querySelector(`.BeltBanner`);
-    const BeltBannerHeight = BeltBanner?.offsetHeight ?? 0;
-    if (element !== null) {
-      window.scrollTo({
-        top: element.offsetTop - 64 - 44 - BeltBannerHeight,
-        left: 0,
-        behavior: "smooth",
-      });
-    }
+    window.open(`https://forms.gle/an8Chn4kPMvo2uEC8`)
   };
-  const webHeight = 960;
-  const mobileHeight = 640;
+  const webHeight = 640;
+  const mobileHeight = 800;
   return (
     <>
       <Box
@@ -356,290 +345,149 @@ function Content({ ready }: { ready: boolean }) {
               alignItems: "center",
               overflow: "hidden",
             }}
-            onClick={tempPress}
           >
             <Box
               sx={{
-                transform: `rotate(-90deg)`,
-                transition: `all 1s ease-in-out`,
+                opacity: 0,
+                transition: `all 1s ease`,
+                transitionDelay: `0s`,
                 "&.shown": {
-                  transform: `rotate(0deg)`,
-                },
-                "& *": {
-                  textAlign: "center",
+                  opacity: 1,
                 },
               }}
               className={className}
             >
-              <Box
+              <Typography
                 sx={{
-                  position: "absolute",
-                  top: "50%",
-                  left: "50%",
-                  transform: `translate(-50%, -50%)`,
-                  width: 300,
-                  zIndex: -1,
-                  opacity: 0.6,
-                  transition: `all 0.35s ease-in-out`,
-                  transitionDelay: `1s`,
-                  "& img": {
-                    width: "100%",
-                    height: "auto",
-                    transitionDelay: `1s !important`,
-                    transition: `all 2s ease-in-out`,
-                    transform: `scale(1)`,
-                  },
-                  "&.shown": {
-                    transform: `translate(-50%, -50%)`,
-                  },
-                  "@media(max-width: 480px)": {
-                    width: 172,
-                  },
+                  fontSize: 48,
+                  lineHeight: 1.2,
+                  fontWeight: "900",
+                  textAlign: 'center',
+                  '& span': {
+                    color: mainColor[500]
+                    // opacity: 0.6
+                  }
                 }}
-                className={className}
               >
-                <img src="images/iphone.png" />
-              </Box>
-              <Box
-                sx={{
-                  height: "608px",
-                  position: "relative",
-                  transform: `rotate(90deg)`,
-                  transition: `all 1s ease-in-out`,
-                  "&.shown": {
-                    transform: `rotate(0deg)`,
-                  },
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                }}
-                className={className}
-              >
-                <Box
+                <span>견적서 받고<br />고르면 끝<br /></span>
+                원스탑 크리에이터<br />섭외 서비스
+              </Typography>
+            </Box>
+            <Box sx={{
+              display: 'flex',
+              m: theme.spacing(6, 0, 0, 0),
+              '@media(max-width: 480px)': {
+                flexDirection: 'column-reverse',
+                width: '100%',
+              }
+            }}>
+              <Box sx={{
+                '@media(max-width: 480px)': {
+                  mt: 3,
+                  mb: 6,
+                  display:'flex',
+                  flexDirection:'column-reverse',
+                  width: '100%'
+                }
+              }}>
+                <Typography sx={{
+                  fontSize: 14,
+                  color: grey[500],
+                  mb: 1,
+                  wordBreak: 'keep-all',
+                  '@media(max-width: 480px)': {
+                    textAlign:'center',
+                    mb: 0,
+                    mt: 1,
+                    '& br': {
+                      display: 'none',
+                    }
+                  }
+                }}>
+                  유하에서 내 브랜드에 맞는 크리에이터를 <br />추천받으세요.
+                </Typography>
+                <Button
                   sx={{
-                    
-                    transform: "translateY(88px)",
+                    width: 'auto',
                     transition: `all 1s ease`,
-                    transitionDelay: `0s`,
-                    width: 240,
-                    height: 84,
-                    "& img": {
-                      width: "auto",
-                      height: "100%",
-                    },
-                    "&.shown": {
-                      transform: "translateY(0)",
-                      height: 48,
-                    },
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "flex-end",
-                    m: theme.spacing(0, 0, 0.5, 0),
-                  }}
-                  className={className}
-                >
-                  <img src="logos/shorts-horizontal.png" />
-                  <Box
-                    sx={{
-                      overflow: "hidden",
-                      width: 0,
-                      transition: `all 0.5s ease`,
-                      transitionDelay: `0s`,
-                      "&.shown": {
-                        width: 38,
-                      },
-                    }}
-                    className={className}
-                  >
-                    <Typography
-                      sx={{
-                        fontSize: 36,
-                        lineHeight: "44px",
-                        fontWeight: "900",
-                        m: theme.spacing(0, 0, 0, 1),
-                      }}
-                    >
-                      로
-                    </Typography>
-                  </Box>
-                </Box>
-                <Box
-                  sx={{
                     opacity: 0,
-                    transition: `all 1s ease`,
-                    transitionDelay: `0s`,
+                    transform: `scale(0.8)`,
                     "&.shown": {
+                      transitionDelay: `2s`,
                       opacity: 1,
+                      transform: `scale(1)`,
                     },
+                    '@media(max-width: 480px)': {
+                      width: '100%',
+                    }
                   }}
                   className={className}
+                  onClick={onClickButton}
                 >
-                  <Typography
-                    sx={{
-                      fontSize: 40,
-                      lineHeight: 1.2,
-                      fontWeight: "900",
-                    }}
-                  >
-                    광고의 역사를
-                  </Typography>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <Typography
-                      sx={{
-                        fontSize: 56,
-                        lineHeight: 1.2,
-                        fontWeight: "900",
-                        position: "relative",
-                        m: theme.spacing(0, 1, 0, 0),
-                        overflowX: "visible",
-                        overflowY: "hidden",
-                        "& *": {
-                          transition: `all 1s ease`,
-                        },
-                        "& .none": {
-                          opacity: 0,
-                          color: "transparent !important",
-                        },
-                        "& .horizontal": {
-                          position: "absolute",
-                          top: 0,
-                          left: 0,
-                          right: 0,
-                          bottom: 0,
-                          color: `#ffffff`,
-                          transform: `translateY(0)`,
-                          opacity: 1,
-                          "&.shown": {
-                            opacity: 0,
-                            transform: `translateY(-100%)`,
-                            transitionDelay: `2.5s`,
-                          },
-                        },
-                        "& .vertical": {
-                          position: "absolute",
-                          top: 0,
-                          left: 0,
-                          right: 0,
-                          bottom: 0,
-                          transform: `translateY(100%)`,
-                          color: `transparent`,
-                          WebkitTextStroke: `1px #ffffff`,
-                          opacity: 0,
-                          "&.shown": {
-                            opacity: 1,
-                            transform: `translateY(0)`,
-                            transitionDelay: `2.5s`,
-                          },
-                        },
-                      }}
-                    >
-                      <span className={`none`}>세로 </span>
-                      <span className={`horizontal ${className}`}>새로 </span>
-                      <span className={`vertical ${className}`}>세로</span>
-                    </Typography>
-                    <Typography
-                      sx={{
-                        display: "inline-block",
-                        fontSize: 56,
-                        lineHeight: 1.2,
-                        fontWeight: "900",
-                      }}
-                    >
-                      쓰다
-                    </Typography>
-                  </Box>
-                </Box>
-                <Box>
-                  <Box
-                    sx={{
-                      overflow: "hidden",
-                    }}
-                  >
-                    <Typography
-                      sx={{
-                        m: theme.spacing(2, 0, 0, 0),
-                        fontSize: 16,
-                        lineHeight: `24px`,
-                        color: grey[400],
-                        transform: `translateY(100%)`,
-                        transition: `all 0.5s ease`,
-                        opacity: 0,
-                        "&.shown": {
-                          opacity: 1,
-                          transform: `translateY(0)`,
-                          transitionDelay: `1s`,
-                        },
-                      }}
-                      className={className}
-                    >
-                      최대 600%의 효율의 쇼츠 광고,
-                    </Typography>
-                  </Box>
-                  <Box
-                    sx={{
-                      overflow: "hidden",
-                    }}
-                  >
-                    <Typography
-                      sx={{
-                        fontSize: 16,
-                        lineHeight: `24px`,
-                        color: grey[400],
-                        transform: `translateY(100%)`,
-                        transition: `all 0.5s ease`,
-                        opacity: 0,
-                        "&.shown": {
-                          opacity: 1,
-                          transform: `translateY(0)`,
-                          transitionDelay: `1.5s`,
-                        },
-                      }}
-                      className={className}
-                    >
-                      No.1 유하에서 만나보세요.
-                    </Typography>
-                  </Box>
-                </Box>
+                  크리에이터 견적서 받기
+                </Button>
               </Box>
+              <Stack spacing={1} sx={{
+                ml: 8,
+                '@media(max-width: 480px)': {
+                  ml: 0
+                }
+              }}>
+                <Stack spacing={0.5} direction={'row'} alignItems={'center'}>
+                  <Box sx={{
+                    mr: 1, minWidth: 20, height: 20, borderRadius: '50%',
+                    background: mainColor[500], display: 'flex', justifyContent: 'center',
+                    alignItems: 'center'
+                  }}>
+                    <Typography sx={{
+                      fontSize: 12,
+                      fontWeight: 900
+                    }}>1</Typography>
+                  </Box>
+                  <Typography sx={{
+
+                  }}>
+                    정확한 섭외 가격
+                  </Typography>
+                </Stack>
+                <Stack spacing={0.5} direction={'row'} alignItems={'center'}>
+                  <Box sx={{
+                    mr: 1, minWidth: 20, height: 20, borderRadius: '50%',
+                    background: mainColor[500], display: 'flex', justifyContent: 'center',
+                    alignItems: 'center'
+                  }}>
+                    <Typography sx={{
+                      fontSize: 12,
+                      fontWeight: 900
+                    }}>2</Typography>
+                  </Box>
+                  <Typography sx={{
+
+                  }}>
+                    크리에이터 일정
+
+                  </Typography>
+                </Stack>
+                <Stack spacing={0.5} direction={'row'} alignItems={'center'}>
+                  <Box sx={{
+                    mr: 1, minWidth: 20, height: 20, borderRadius: '50%',
+                    background: mainColor[500], display: 'flex', justifyContent: 'center',
+                    alignItems: 'center'
+                  }}>
+                    <Typography sx={{
+                      fontSize: 12,
+                      fontWeight: 900
+                    }}>3</Typography>
+                  </Box>
+                  <Typography sx={{
+
+                  }}>
+                    내 브랜드와 핏이 맞는 이유까지 한번에
+                  </Typography>
+                </Stack>
+              </Stack>
             </Box>
           </Container>
-          <Box
-            sx={{
-              position: "absolute",
-              left: "50%",
-              right: 0,
-              bottom: 172,
-              width: 240,
-              transform: `translateX(-50%)`,
-              "@media(max-width: 480px)": {
-                bottom: 80,
-                width: 240,
-              },
-            }}
-          >
-            <Button
-              sx={{
-                m: theme.spacing(3, 0, 0, 0),
-                transition: `all 1s ease`,
-                opacity: 0,
-                transform: `scale(0.8)`,
-                "&.shown": {
-                  transitionDelay: `2s`,
-                  opacity: 1,
-                  transform: `scale(1)`,
-                },
-              }}
-              className={className}
-              onClick={onClickButton}
-            >
-              지금 바로 문의하기
-            </Button>
-          </Box>
         </Box>
       </Box>
       <MainNav />
@@ -736,9 +584,20 @@ function Main() {
                     flexDirection: 'row',
                   },
                 }}>
-                <Icon
+                {/* <Icon
                   size={48}
-                  name={item.icon} prefix={'fad'} color={youhaBlue[500]} />
+                  name={item.icon} prefix={'fad'} color={youhaBlue[500]} /> */}
+                <Box sx={{
+                  '& svg': {
+                    width: 'auto',
+                    height: 44,
+                    color: mainColor[500]
+                  }
+                }}>
+                  {item.title === '광고주 회원' ? <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="user-tie-hair" className="svg-inline--fa fa-user-tie-hair fa-2x " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><g className="fa-duotone-group"><path className="fa-secondary" fill="currentColor" d="M257.9 66.16C269.2 84.1 289.2 96 312 96H347.1C350.6 106.2 352 116.1 352 128C352 198.7 294.7 256 224 256C153.3 256 96 198.7 96 128C96 120.1 96.57 114.1 97.65 107.4C104.5 110.4 112.1 112 120 112H176C210.6 112 240.1 93.66 257.9 66.16V66.16z"></path><path className="fa-primary" fill="currentColor" d="M97.66 107.4C107.5 46.48 160.3 0 224 0C283.6 0 333.8 40.79 347.1 96H312C289.2 96 269.2 84.09 257.9 66.16C240.1 93.66 210.6 112 176 112H120C112.1 112 104.5 110.3 97.66 107.4V107.4zM209.1 359.2L176 304H272L238.9 359.2L272.2 483.1L311.7 321.9C388.9 333.9 448 400.7 448 481.3C448 498.2 434.2 512 417.3 512H30.72C13.75 512 0 498.2 0 481.3C0 400.7 59.09 333.9 136.3 321.9L175.8 483.1L209.1 359.2z"></path></g></svg> :
+                    item.title === '광고대행사 회원' ? <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="user-tie-hair-long" className="svg-inline--fa fa-user-tie-hair-long fa-2x " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><g className="fa-duotone-group"><path className="fa-secondary" fill="currentColor" d="M312 96H320L320 160C320 213 277 256 224 256C170.1 256 128 213 128 160L128 112H176C210.6 112 240.1 93.66 257.9 66.16C269.2 84.1 289.2 96 312 96V96z"></path><path className="fa-primary" fill="currentColor" d="M70.63 272C58.13 272 48 261.9 48 249.4C48 243.4 50.38 237.6 54.63 233.4L58.51 229.5C82.51 205.5 96 172.9 96 138.1V128C96 57.31 153.3 0 224 0C294.6 0 351.8 57.1 352 127.6V128.4L352 128.6V138.1C352 172.9 365.5 205.5 389.5 229.5L393.4 233.4C397.6 237.6 400 243.4 400 249.4C400 261.9 389.9 272 377.4 272H70.63zM128 112V160C128 213 170.1 256 224 256C277 256 320 213 320 160L320 96H312C289.2 96 269.2 84.09 257.9 66.16C240.1 93.66 210.6 112 176 112H128zM209.1 359.2L176 304H272L238.9 359.2L272.2 483.1L311.7 321.9C388.9 333.9 448 400.7 448 481.3C448 498.2 434.2 512 417.3 512H30.72C13.75 512 0 498.2 0 481.3C0 400.7 59.09 333.9 136.3 321.9L175.8 483.1L209.1 359.2z"></path></g></svg> :
+                      <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="money-bill" className="svg-inline--fa fa-money-bill fa-2x " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><g className="fa-duotone-group"><path className="fa-secondary" fill="currentColor" d="M512 192V320C476.7 320 448 348.7 448 384H128C128 348.7 99.35 320 64 320V192C99.35 192 128 163.3 128 128H448C448 163.3 476.7 192 512 192zM288 352C341 352 384 309 384 256C384 202.1 341 160 288 160C234.1 160 192 202.1 192 256C192 309 234.1 352 288 352z"></path><path className="fa-primary" fill="currentColor" d="M512 64C547.3 64 576 92.65 576 128V384C576 419.3 547.3 448 512 448H64C28.65 448 0 419.3 0 384V128C0 92.65 28.65 64 64 64H512zM448 128H128C128 163.3 99.35 192 64 192V320C99.35 320 128 348.7 128 384H448C448 348.7 476.7 320 512 320V192C476.7 192 448 163.3 448 128z"></path></g></svg>}
+                </Box>
                 <Box sx={{
                   display: 'flex',
                   flexDirection: 'column',
@@ -848,9 +707,24 @@ function Main() {
                   width: '100%',
                   flexDirection: 'row',
                 }}>
-                <Icon
-                  size={48}
-                  name={item.icon} prefix={'fad'} color={youhaBlue[500]} />
+                <Box sx={{
+                  minWidth: 48,
+                  height: 48,
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  overflow: 'visible',
+                  '& svg': {
+                    color: mainColor[500],
+                    height: 44,
+                    width: 'auto'
+                  }
+                }}>
+                  {item.title === '유하 인증 에이전시' ? <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="user-tie-hair" className="svg-inline--fa fa-user-tie-hair fa-2x " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><g className="fa-duotone-group"><path className="fa-secondary" fill="currentColor" d="M257.9 66.16C269.2 84.1 289.2 96 312 96H347.1C350.6 106.2 352 116.1 352 128C352 198.7 294.7 256 224 256C153.3 256 96 198.7 96 128C96 120.1 96.57 114.1 97.65 107.4C104.5 110.4 112.1 112 120 112H176C210.6 112 240.1 93.66 257.9 66.16V66.16z"></path><path className="fa-primary" fill="currentColor" d="M97.66 107.4C107.5 46.48 160.3 0 224 0C283.6 0 333.8 40.79 347.1 96H312C289.2 96 269.2 84.09 257.9 66.16C240.1 93.66 210.6 112 176 112H120C112.1 112 104.5 110.3 97.66 107.4V107.4zM209.1 359.2L176 304H272L238.9 359.2L272.2 483.1L311.7 321.9C388.9 333.9 448 400.7 448 481.3C448 498.2 434.2 512 417.3 512H30.72C13.75 512 0 498.2 0 481.3C0 400.7 59.09 333.9 136.3 321.9L175.8 483.1L209.1 359.2z"></path></g></svg> :
+                    item.title === '정확한 단가와 일정' ? <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="calendar-days" className="svg-inline--fa fa-calendar-days fa-2x " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><g className="fa-duotone-group"><path className="fa-secondary" fill="currentColor" d="M0 192H448V464C448 490.5 426.5 512 400 512H48C21.49 512 0 490.5 0 464V192zM64 304C64 312.8 71.16 320 80 320H112C120.8 320 128 312.8 128 304V272C128 263.2 120.8 256 112 256H80C71.16 256 64 263.2 64 272V304zM208 256C199.2 256 192 263.2 192 272V304C192 312.8 199.2 320 208 320H240C248.8 320 256 312.8 256 304V272C256 263.2 248.8 256 240 256H208zM320 304C320 312.8 327.2 320 336 320H368C376.8 320 384 312.8 384 304V272C384 263.2 376.8 256 368 256H336C327.2 256 320 263.2 320 272V304zM80 384C71.16 384 64 391.2 64 400V432C64 440.8 71.16 448 80 448H112C120.8 448 128 440.8 128 432V400C128 391.2 120.8 384 112 384H80zM192 432C192 440.8 199.2 448 208 448H240C248.8 448 256 440.8 256 432V400C256 391.2 248.8 384 240 384H208C199.2 384 192 391.2 192 400V432zM336 384C327.2 384 320 391.2 320 400V432C320 440.8 327.2 448 336 448H368C376.8 448 384 440.8 384 432V400C384 391.2 376.8 384 368 384H336z"></path><path className="fa-primary" fill="currentColor" d="M160 64H288V32C288 14.33 302.3 0 320 0C337.7 0 352 14.33 352 32V64H400C426.5 64 448 85.49 448 112V192H0V112C0 85.49 21.49 64 48 64H96V32C96 14.33 110.3 0 128 0C145.7 0 160 14.33 160 32V64z"></path></g></svg> :
+                      item.title === '영상 업로드까지 안전하게' ? <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="cloud-arrow-up" className="svg-inline--fa fa-cloud-arrow-up fa-2x " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><g className="fa-duotone-group"><path className="fa-secondary" fill="currentColor" d="M144 480C64.47 480 0 415.5 0 336C0 273.2 40.17 219.8 96.2 200.1C96.07 197.4 96 194.7 96 192C96 103.6 167.6 32 256 32C315.3 32 367 64.25 394.7 112.2C409.9 101.1 428.3 96 448 96C501 96 544 138.1 544 192C544 204.2 541.7 215.8 537.6 226.6C596 238.4 640 290.1 640 352C640 422.7 582.7 480 512 480H144zM223 263C213.7 272.4 213.7 287.6 223 296.1C232.4 306.3 247.6 306.3 256.1 296.1L296 257.9V392C296 405.3 306.7 416 320 416C333.3 416 344 405.3 344 392V257.9L383 296.1C392.4 306.3 407.6 306.3 416.1 296.1C426.3 287.6 426.3 272.4 416.1 263L336.1 183C327.6 173.7 312.4 173.7 303 183L223 263z"></path><path className="fa-primary" fill="currentColor" d="M223 296.1C213.7 287.6 213.7 272.4 223 263L303 183C312.4 173.7 327.6 173.7 336.1 183L416.1 263C426.3 272.4 426.3 287.6 416.1 296.1C407.6 306.3 392.4 306.3 383 296.1L344 257.9V392C344 405.3 333.3 416 320 416C306.7 416 296 405.3 296 392V257.9L256.1 296.1C247.6 306.3 232.4 306.3 223 296.1V296.1z"></path></g></svg> :
+                        <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="handshake" className="svg-inline--fa fa-handshake fa-2x " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><g className="fa-duotone-group"><path className="fa-secondary" fill="currentColor" d="M480 128.2c-40.98-40.93-64.6-64.12-122.6-64.12c-10.49 0-19.93-.6141-30.2 8.566L217 163.6C196.8 180.7 194.2 210.1 211.4 231.2c9.5 11.21 23.03 16.99 36.67 16.99c10.94 0 21.95-3.716 30.97-11.33l39.57-33.46l165.3 135.3c4.361 3.536 7.123 8.173 9.078 13.04L544 351.1V128.4L480 128.2zM0 383.9l64 .0404c17.75 0 32-14.3 32-32.03V128.3L0 128.3V383.9zM48 320.1c8.75 0 16 7.124 16 15.99c0 8.735-7.25 15.99-16 15.99S32 344.8 32 336.1C32 327.2 39.25 320.1 48 320.1z"></path><path className="fa-primary" fill="currentColor" d="M318.6 203.4L279 236.8c-9.016 7.619-20.03 11.33-30.97 11.33c-13.64 0-27.17-5.777-36.67-16.99C194.2 210.1 196.8 180.7 217 163.6l110.3-90.9L280.9 64C223.6 64.37 168.8 87.48 128.2 127.9L96 128.3v223.6l50.25-.0904l90.5 81.82c27.5 22.35 67.75 18.1 90-9.246l18.12 15.24c15.88 12.98 39.38 10.48 52.38-5.371l31.38-38.6l5.374 4.498c13.75 10.99 33.88 8.991 45-4.748l9.538-11.78c11.08-13.69 8.985-33.83-4.694-44.93L318.6 203.4zM544 128.4v223.6c0 17.6 14.25 32.05 31.1 32.05L640 384V128.5L544 128.4zM592 352c-8.75 0-16-7.253-16-15.99c0-8.868 7.25-15.99 16-15.99s16 7.124 16 15.99C608 344.8 600.8 352 592 352z"></path></g></svg>}
+                </Box>
                 <Box sx={{
                   ml: 3,
                   '@media(max-width: 480px)': {
