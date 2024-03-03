@@ -233,7 +233,7 @@ function MyApp(props: MyAppProps) {
                 width: "100%",
               }}
             > */}
-          <GlobalHeader />
+          {/* <GlobalHeader /> */}
           <Component {...pageProps} key={router.route} />
           {/* </Box>
           </Box> */}
