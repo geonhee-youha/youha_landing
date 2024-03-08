@@ -51,7 +51,7 @@ export default function Index() {
               fontWeight: '700'
             }
           }}>
-            Select the creator effortlessly through <b>YOUHA</b>
+            Select the creator effortlessly through <b>youha</b>
           </Typography>
         </Box>
         <Box sx={{
@@ -270,7 +270,7 @@ export default function Index() {
             fontWeight: '700',
             color: '#ffffff'
           }}>
-            YOUHA 인증 에이전시들이 광고주를 위한<br />
+            youha 인증 에이전시들이 광고주를 위한<br />
             최적화 크리에이터 리스트를 제공해드립니다.
           </Typography>
           <Typography sx={{
@@ -535,6 +535,7 @@ export default function Index() {
                 m: theme.spacing(4, 0, 0, 0),
                 backgroundColor: '#ffffff',
                 fontSize: 16,
+                lineHeight: 24,
                 fontWeight: '700',
                 height: 48,
                 alignItems: 'center',
@@ -568,13 +569,14 @@ export default function Index() {
                 m: theme.spacing(4, 0, 0, 0),
                 backgroundColor: '#ffffff',
                 fontSize: 16,
+                lineHeight: 24,
                 fontWeight: '700',
                 height: 48,
                 alignItems: 'center',
                 p: theme.spacing(0, 2),
                 borderRadius: 48,
               }}>
-              YOUHA 인증 에이전시 신청하기
+              youha 인증 에이전시 신청하기
             </ButtonBase>
           </Box>
         </Box>
