@@ -76,7 +76,7 @@ function MyApp(props: MyAppProps) {
     <CacheProvider value={emotionCache}>
       <Head>
         <meta charSet="utf-8" />
-        <title>YOUHA V6 DEMO</title>
+        <title>유튜버 찾을 땐, 유하</title>
         {/* <meta
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
@@ -86,16 +86,16 @@ function MyApp(props: MyAppProps) {
           name="keywords"
           content="jellysmack, 젤리스맥, youha, 유하, 펀딩, 크리에이터, 한도조회"
         />
-        <meta name="description" content="YOUHA V6 DEMO" />
+        <meta name="description" content="유하에서 국내 모든 유튜버에게 광고를 제안하고 답장을 100% 받아보세요. 광고주와 유튜버의 인플루언서 마케팅 커뮤니티 (브랜디드 콘텐츠, PPL 등)" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="YOUHA V6 DEMO" />
-        <meta property="og:title" content="YOUHA V6 DEMO" />
-        <meta property="og:description" content="YOUHA V6 DEMO" />
+        <meta property="og:title" content="유튜버 찾을 땐, 유하" />
+        <meta property="og:description" content="유하에서 국내 모든 유튜버에게 광고를 제안하고 답장을 100% 받아보세요. 광고주와 유튜버의 인플루언서 마케팅 커뮤니티 (브랜디드 콘텐츠, PPL 등)" />
         {/* <meta property="og:image" content="/images/favicon/share.png" /> */}
         <meta property="og:image:width" content="200" />
         <meta property="og:image:height" content="200" />
         <meta property="og:image:type" content="images/png" />
-        <meta property="og:url" content="https://youha-v6-demo.vercel.app/" />
+        <meta property="og:url" content="https://www.youha.info" />
         <meta name="twitter:card" content="summary" data-react-helmet="true" />
         <meta name="twitter:creator" content="" data-react-helmet="true" />
         <meta
