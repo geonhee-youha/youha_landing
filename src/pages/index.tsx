@@ -113,21 +113,23 @@ export default function Index() {
               </Box>
             </Box>
           </Box>
-          <ButtonBase
-            sx={{
-              m: theme.spacing(6, 0, 0, 'auto'),
-              backgroundColor: youhaBlue[500],
-              color: '#ffffff',
-              fontSize: 20,
-              fontWeight: '700',
-              height: 56,
-              alignItems: 'center',
-              p: theme.spacing(0, 3),
-              borderRadius: 48,
-              boxShadow: '4px 4px 8px 0px rgb(0 0 0 / 40%)'
-            }}>
-            크리에이터 리스트 신청하기
-          </ButtonBase>
+          <Link href='https://forms.gle/kxop4pXaXqrUrnvB9' passHref  target="_blank" rel="noopener noreferrer">
+            <ButtonBase
+              sx={{
+                m: theme.spacing(6, 0, 0, 'auto'),
+                backgroundColor: youhaBlue[500],
+                fontSize: 20,
+                fontWeight: '700',
+                height: 56,
+                alignItems: 'center',
+                p: theme.spacing(0, 3),
+                borderRadius: 48,
+                boxShadow: '4px 4px 8px 0px rgb(0 0 0 / 40%)',
+                color: '#ffffff !important',
+              }}>
+              크리에이터 리스트 신청하기
+            </ButtonBase>
+          </Link>
         </Box>
       </Container>
     </Box>
@@ -641,21 +643,23 @@ export default function Index() {
             원하는 크리에이터를 결정만 하세요!<br />
             브랜드 성공의 시작입니다.
           </Typography>
-          <ButtonBase
-            sx={{
-              m: theme.spacing(6, 0, 0, 'auto'),
-              backgroundColor: '#000000',
-              color: '#ffffff',
-              fontSize: 20,
-              fontWeight: '700',
-              height: 56,
-              alignItems: 'center',
-              p: theme.spacing(0, 3),
-              borderRadius: 48,
-              boxShadow: '4px 4px 8px 0px rgb(0 0 0 / 40%)'
-            }}>
-            크리에이터 리스트 신청하기
-          </ButtonBase>
+          <Link href='https://forms.gle/kxop4pXaXqrUrnvB9' passHref  target="_blank" rel="noopener noreferrer">
+            <ButtonBase
+              sx={{
+                m: theme.spacing(6, 0, 0, 'auto'),
+                backgroundColor: '#000000',
+                fontSize: 20,
+                fontWeight: '700',
+                height: 56,
+                alignItems: 'center',
+                p: theme.spacing(0, 3),
+                borderRadius: 48,
+                boxShadow: '4px 4px 8px 0px rgb(0 0 0 / 40%)',
+                color: '#ffffff !important',
+              }}>
+              크리에이터 리스트 신청하기
+            </ButtonBase>
+          </Link>
         </Box>
       </Container>
     </Box>
@@ -779,24 +783,28 @@ export default function Index() {
             }}>
               For Advertiser
             </Typography>
-            <ButtonBase
-              sx={{
-                m: theme.spacing(4, 0, 0, 0),
-                backgroundColor: '#ffffff',
-                fontSize: 16,
-                lineHeight: '24px',
-                fontWeight: '700',
-                height: 48,
-                alignItems: 'center',
-                p: theme.spacing(0, 2),
-                borderRadius: 48,
-                '@media(max-width: 480px)': {
-                  fontSize: 14,
-                  m: theme.spacing(2, 0, 0, 0),
-                }
-              }}>
-              크리에이터 리스트 신청하기
-            </ButtonBase>
+            <Link href='https://forms.gle/kxop4pXaXqrUrnvB9' passHref  target="_blank" rel="noopener noreferrer">
+              <ButtonBase
+                sx={{
+                  boxSizing: 'border-box',
+                  color: '#000000 !important',
+                  m: theme.spacing(4, 0, 0, 0),
+                  backgroundColor: '#ffffff',
+                  fontSize: 16,
+                  lineHeight: '24px',
+                  fontWeight: '700',
+                  height: 48,
+                  alignItems: 'center',
+                  p: theme.spacing(0, 2),
+                  borderRadius: 48,
+                  '@media(max-width: 480px)': {
+                    fontSize: 14,
+                    m: theme.spacing(2, 0, 0, 0),
+                  },
+                }}>
+                크리에이터 리스트 신청하기
+              </ButtonBase>
+            </Link>
           </Box>
         </Box>
         <Box sx={{
@@ -830,24 +838,27 @@ export default function Index() {
             }}>
               For Agency
             </Typography>
-            <ButtonBase
-              sx={{
-                m: theme.spacing(4, 0, 0, 0),
-                backgroundColor: '#ffffff',
-                fontSize: 16,
-                lineHeight: '24px',
-                fontWeight: '700',
-                height: 48,
-                alignItems: 'center',
-                p: theme.spacing(0, 2),
-                borderRadius: 48,
-                '@media(max-width: 480px)': {
-                  fontSize: 14,
-                  m: theme.spacing(2, 0, 0, 0),
-                }
-              }}>
-              youha 인증 에이전시 신청하기
-            </ButtonBase>
+            <Link href='https://forms.gle/g8ZjWuyiy2g1AATS7' passHref  target="_blank" rel="noopener noreferrer">
+              <ButtonBase
+                sx={{
+                  m: theme.spacing(4, 0, 0, 0),
+                  color: '#000000 !important',
+                  backgroundColor: '#ffffff',
+                  fontSize: 16,
+                  lineHeight: '24px',
+                  fontWeight: '700',
+                  height: 48,
+                  alignItems: 'center',
+                  p: theme.spacing(0, 2),
+                  borderRadius: 48,
+                  '@media(max-width: 480px)': {
+                    fontSize: 14,
+                    m: theme.spacing(2, 0, 0, 0),
+                  },
+                }}>
+                youha 인증 에이전시 신청하기
+              </ButtonBase>
+            </Link>
           </Box>
         </Box>
       </Container>
